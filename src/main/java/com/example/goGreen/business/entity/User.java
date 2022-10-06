@@ -1,6 +1,7 @@
 package com.example.goGreen.business.entity;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class User {
@@ -13,6 +14,12 @@ public class User {
 
     private int phone;
     private String email;
+
+    @OneToMany (cascade = CascadeType.ALL)
+    private List<Item> wanted;
+
+    @OneToMany (cascade = CascadeType.ALL)
+    private List <Item> offered;
 
     public User() {
     }
